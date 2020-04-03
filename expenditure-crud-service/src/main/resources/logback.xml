@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="expenditurecrudinfo"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>C:\elk\logs\infolog.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>C:\Users\akila\logs\archived\info.app.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<totalSizeCap>20GB</totalSizeCap>
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="expenditurecruderror"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>C:\elk\logs\errorlog.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>C:\Users\akila\logs\archived\error.app.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<totalSizeCap>20GB</totalSizeCap>
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+			</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="expenditurecruddebug"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>C:\elk\logs\debuglog.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>C:\Users\akila\logs\archived\debgug.app.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<totalSizeCap>20GB</totalSizeCap>
+			<maxHistory>60</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+			</Pattern>
+		</encoder>
+	</appender>
+	<logger name="expenditurecrud" level="INFO" additivity="false">
+		<appender-ref ref="expenditurecrudinfo" />
+	</logger>
+	<logger name="expenditurecrud" level="ERROR" additivity="false">
+		<appender-ref ref="expenditurecruderror" />
+	</logger>
+	<logger name="expenditurecrud" level="DEBUG" additivity="false">
+		<appender-ref ref="expenditurecruddebug" />
+	</logger>
+</configuration>
